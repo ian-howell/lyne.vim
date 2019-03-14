@@ -43,24 +43,18 @@ function! lyne#utils#update_separators(c, winnr)
 			endif
 
 			if (l:fgId == 0)
-				let l:guifg   = ''
 				let l:ctermfg = ''
 			else
-				let l:guifg   = synIDattr(l:fgId, synIDattr(l:fgId, 'reverse', 'gui')   ? 'fg' : 'bg', 'gui')
 				let l:ctermfg = synIDattr(l:fgId, synIDattr(l:fgId, 'reverse', 'cterm') ? 'fg' : 'bg', 'cterm')
 			endif
 			if (l:bgId == 0)
-				let l:guibg   = ''
 				let l:ctermbg = ''
 			else
-				let l:guibg   = synIDattr(l:bgId, synIDattr(l:bgId, 'reverse', 'gui')   ? 'fg' : 'bg', 'gui')
 				let l:ctermbg = synIDattr(l:bgId, synIDattr(l:bgId, 'reverse', 'cterm') ? 'fg' : 'bg', 'cterm')
 			endif
 
 			let l:hls =
-			\	  ' guibg='.  (empty(l:guibg)   ? 'fg' : l:guibg)
 			\	. ' ctermbg='.(empty(l:ctermbg) ? 'NONE' : l:ctermbg)
-			\	. ' guifg='.  (empty(l:guifg)   ? 'bg' : l:guifg)
 			\	. ' ctermfg='.(empty(l:ctermfg) ? 'NONE' : l:ctermfg)
 
 			if (!empty(l:hls))
