@@ -25,8 +25,8 @@ endfunction
 
 " post-functions
 
-function! lyne#utils#update_mode(c, winnr)
-	execute 'highlight! link LyneMode LyneMode'.lyne#get_mode_hl()[mode(1)]
+function! lyne#utils#update_bufstate(c, winnr)
+	execute 'highlight! link LyneMode LyneMode'.lyne#get_bufstate_hl()[lyn#utils#getbufstate()]
 endfunction
 
 function! lyne#utils#update_separators(c, winnr)
@@ -74,13 +74,14 @@ function! lyne#utils#get_bufname(c, winnr)
 	return (empty(l:bufname) ? '[no name]' : fnamemodify(l:bufname, ':p:~:.')) " .l:flags
 endfunction
 
-function! lyne#utils#get_bufflags(c, winnr)
-	if getwinvar(a:winnr, '&filetype', '') ==# 'help'
-		return ''
-	endif
-	let l:flags  = getwinvar(a:winnr, '&modified', 0) ? '+' : ''
-	let l:flags .= getwinvar(a:winnr, '&modifiable', 1) ? '' : '-'
-	let l:flags .= getwinvar(a:winnr, '&readonly', 0) ? 'RO' : ''
-	return empty(l:flags) ? l:flags : '['.l:flags.']'
+function! lyne#utils#get_bufstate(c, winnr)
+  if getwinvar(a:winnr, '&filetype', '') ==# 'help'
+    return 1
+  elseif getwinvar(a:winnr, '&modified', 0)
+    return 2
+  elseif getwinvar(a:winnr, '&modifiable', 1)
+    return 3
+  endif
+  return 0
 endfunction
 
