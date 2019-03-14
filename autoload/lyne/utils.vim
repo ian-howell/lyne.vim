@@ -16,9 +16,9 @@ endfunction
 
 function! lyne#utils#update_bufname(c, winnr)
 	if (&modified)
-		highlight! link LyneBufname LyneBufnameModified
+		highlight! link LyneBufname LyneModified
 	else
-		highlight! link LyneBufname LyneBufnameUnmodified
+		highlight! link LyneBufname LyneUnmodified
 	endif
 endfunction
 

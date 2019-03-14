@@ -30,15 +30,10 @@ function lyne#defaults#get(name)
 endfunction
 
 function! lyne#defaults#colors()
-	highlight LyneDefaultModeNormal  ctermbg=4 ctermfg=0
-	highlight LyneDefaultModeInsert  ctermbg=7 ctermfg=0
-	highlight LyneDefaultModeVisual  ctermbg=5 ctermfg=0
-	highlight LyneDefaultModeReplace ctermbg=1 ctermfg=0
-	highlight LyneDefaultModeCommand ctermbg=6 ctermfg=0
-	highlight LyneDefaultModePrompt  ctermbg=7 ctermfg=0
-	highlight LyneDefaultModeTerm    ctermbg=7 ctermfg=0
-	highlight LyneDefaultBufnameUnmodified ctermbg=8 ctermfg=2
-	highlight LyneDefaultBufnameModified   ctermbg=8 ctermfg=2 cterm=bold
+	highlight LyneDefaultDefault        ctermbg=7 ctermfg=0
+	highlight LyneDefaultUnmodified     ctermbg=7 ctermfg=7
+	highlight LyneDefaultModified       ctermbg=7 ctermfg=53 cterm=bold
+	highlight LyneDefaultUnmodifiable   ctermbg=7 ctermfg=52 cterm=bold
 	if empty(synIDattr(synIDtrans(hlID('StatusLine')), 'bg', 'cterm'))
 		highlight StatusLine ctermbg=0
 	endif
@@ -46,15 +41,10 @@ function! lyne#defaults#colors()
 		highlight StatusLine ctermfg=7
 	endif
 	highlight StatusLine cterm=NONE
-	highlight! default link LyneModeInsert  LyneDefaultModeInsert
-	highlight! default link LyneModeNormal  LyneDefaultModeNormal
-	highlight! default link LyneModeVisual  LyneDefaultModeVisual
-	highlight! default link LyneModeReplace LyneDefaultModeReplace
-	highlight! default link LyneModeCommand LyneDefaultModeCommand
-	highlight! default link LyneModePrompt  LyneDefaultModePrompt
-	highlight! default link LyneModeTerm    LyneDefaultModeTerm
-	highlight! default link LyneBufnameUnmodified LyneDefaultBufnameUnmodified
-	highlight! default link LyneBufnameModified LyneDefaultBufnameModified
+	highlight! default link LyneDefault             LyneDefaultDefault
+	highlight! default link LyneUnmodified          LyneDefaultUnmodified
+	highlight! default link LyneModified            LyneDefaultModified
+	highlight! default link LyneUnmodifiable        LyneDefaultUnmodifiable
 	silent! call call('lyne#colors#'.get(g:, 'colors_name', ''), [])
 endfunction
 
