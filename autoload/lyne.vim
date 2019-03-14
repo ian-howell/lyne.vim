@@ -1,6 +1,3 @@
-
-" autoload/lyne.vim
-
 if exists('g:_lyne_loaded')
 	finish
 endif
@@ -104,7 +101,7 @@ function! lyne#setup()
 			call extend(s:[l:name], {'right':l:right}, 'force')
 		endif
 	endfor
-	for l:name in ['separators', 'pre_functions', 'post_functions', 'pre_compile_functions', 'post_compile_functions', 'mode_hl', 'mode_map']
+	for l:name in ['separators', 'pre_functions', 'post_functions', 'pre_compile_functions', 'post_compile_functions']
 		let s:[l:name] = lyne#defaults#get(l:name)
 		let l:settings = get(g:, 'lyne_'.l:name)
 		if type(l:settings) !=# type(s:[l:name])
@@ -147,12 +144,6 @@ function! lyne#get_inactive(...)
 endfunction
 function! lyne#get_separators(...)
 	return copy(s:separators)
-endfunction
-function! lyne#get_mode_hl(...)
-	return copy(s:mode_hl)
-endfunction
-function! lyne#get_mode(...)
-	return copy(s:mode_map[mode(1)])
 endfunction
 function! lyne#get_pre_functions(...)
 	return copy(s:pre_functions)

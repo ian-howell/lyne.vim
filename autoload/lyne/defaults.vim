@@ -1,4 +1,3 @@
-
 if exists('g:_lyne_defaults_loaded')
 	finish
 endif
@@ -25,70 +24,6 @@ let s:post_functions = ['lyne#utils#update_bufname', 'lyne#utils#update_mode', '
 
 let s:pre_compile_functions = []
 let s:post_compile_functions = []
-
-let s:mode_hl = {
-\	'n'        : 'Normal',
-\	'no'       : 'Normal',
-\	'nov'      : 'Normal',
-\	'noV'      : 'Normal',
-\	"no\<c-v>" : 'Normal',
-\	'niI'      : 'Insert',
-\	'niR'      : 'Replace',
-\	'niV'      : 'Visual',
-\	'v'        : 'Visual',
-\	'V'        : 'Visual',
-\	"\<c-v>"   : 'Visual',
-\	's'        : 'Visual',
-\	'S'        : 'Visual',
-\	"\<c-s>"   : 'Visual',
-\	'i'        : 'Insert',
-\	'ic'       : 'Insert',
-\	'ix'       : 'Insert',
-\	'R'        : 'Replace',
-\	'Rc'       : 'Replace',
-\	'Rv'       : 'Replace',
-\	'Rx'       : 'Replace',
-\	'c'        : 'Command',
-\	'cv'       : 'Term',
-\	'ce'       : 'Term',
-\	'r'        : 'Prompt',
-\	'rm'       : 'Prompt',
-\	'r?'       : 'Prompt',
-\	'!'        : 'Term',
-\	't'        : 'Term'
-\}
-
-let s:mode_map = {
-\	'n'        : 'N',
-\	'no'       : 'N·OP',
-\	'nov'      : 'N·OP·v',
-\	'noV'      : 'N·OP·V',
-\	"no\<c-v>" : 'N·OP·^V',
-\	'niI'      : 'I·^O',
-\	'niR'      : 'R·^O',
-\	'niV'      : 'V',
-\	'v'        : 'v',
-\	'V'        : 'V',
-\	"\<c-v>"   : '^V',
-\	's'        : 's',
-\	'S'        : 'S',
-\	"\<c-s>"   : '^S',
-\	'i'        : 'I',
-\	'ic'       : 'I·Comp',
-\	'ix'       : 'I·^X',
-\	'R'        : 'R',
-\	'Rc'       : 'R·Comp',
-\	'Rv'       : 'R·Virt',
-\	'Rx'       : 'R·^X',
-\	'c'        : 'C',
-\	'cv'       : 'Ex·C',
-\	'ce'       : 'Ex',
-\	'r'        : 'Enter',
-\	'rm'       : 'More',
-\	'r?'       : 'Confirm',
-\	'!'        : 'Shell',
-\	't'        : 'Term'
-\}
 
 function lyne#defaults#get(name)
 	return copy(get(s:, a:name))
