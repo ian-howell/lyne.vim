@@ -310,17 +310,6 @@ all of the windows' statuslines, use `:echo map(range(1, winnr('$')), { i,n ->
 %{lyne#pre()}%#LyneMode#%{lyne#func_wrap('lyne#get_mode',1,':')}%#LyneBufname#%{lyne#func_wrap('lyne#utils#get_bufname',1,'>')}%<%{lyne#func_wrap('lyne#utils#get_bufflags',1,'<')}%#StatusLine# %{&filetype}%=[%l/%L] %p%% %#LyneBufname# %02v %{lyne#post()}
 ```
 
-## pics
-
-### various lyne modes
-
-![lyne modes](assets/lyne_modes.png)
-
-### various buffers
-
-![lyne buffers](assets/lyne_buffers.png)
-
-
 ## todo
 
 1. Allow for restrictions somehow based on arbitrary functions (or maybe things
